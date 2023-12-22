@@ -1,4 +1,10 @@
 <nav class="navbar navbar-light">
-    <button *ngIf="isConnected()" routerLink="login">Se connecter</button>
-    <button *ngIf="!isConnected()" (click)="logout()">Se déconnecter</button>
+    <img src="../../../../assets/images/logo21.svg">
+    <div>
+        <button *ngIf="isConnected()" routerLink="login">Se connecter</button>
+        <button *ngIf="!isConnected()" (click)="logout()">Se déconnecter</button>
+    </div>
+    <div>
+        <button>Autre commande</button>
+    </div>
 </nav>

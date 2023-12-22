@@ -1,4 +1,11 @@
 nav{
+    padding : 0px;
     background-color: #e3f2fd;
     height: 5rem ;
+    display: flex;
+}
+nav *{
+    justify-content: space-between;
+    max-height: 4.75rem ;
+    align-items: center;
 }
