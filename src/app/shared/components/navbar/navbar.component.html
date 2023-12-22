@@ -1,10 +1,12 @@
 <nav class="navbar navbar-light">
-    <img src="../../../../assets/images/logo21.svg">
+    <a routerLink="/">
+        <img src="../../../../assets/images/logo21.svg">
+    </a>
     <div>
-        <button *ngIf="isConnected()" routerLink="login">Se connecter</button>
-        <button *ngIf="!isConnected()" (click)="logout()">Se déconnecter</button>
+        <button class="btn btn-primary" *ngIf="isConnected()" routerLink="login">Se connecter</button>
+        <button class="btn btn-primary" *ngIf="!isConnected()" (click)="logout()">Se déconnecter</button>
     </div>
     <div>
-        <button>Autre commande</button>
+        <button class="btn btn-primary">Autre commande</button>
     </div>
 </nav>

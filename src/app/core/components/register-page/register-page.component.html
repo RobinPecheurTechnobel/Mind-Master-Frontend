@@ -1,19 +1,29 @@
-<div>
-    <form [formGroup]="registerForm" (ngSubmit)="register()">
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="row">
         <span class="text-danger" *ngIf="errorMessage">{{errorMessage}}</span>
-        <br>
-        <label for="username"><b>Username</b></label>
-        <br>
-        <input type="text" placeholder="Enter Username" name="login" formControlName='login' required>
-        <br>
+    </div>
+    <div class="row">
+        <label for="login"><b>Login</b></label>
+    </div>
+    <div class="row">
+        <input type="text" placeholder="Enter Login" name="login" formControlName='login' required>
+    </div>
+    
+    <div class="row">
         <label for="password"><b>Password</b></label>
-        <br>
+    </div>
+    <div class="row">
         <input type="password" placeholder="Enter Password" name="password" formControlName='password' required>
-        <br>
+    </div>
+
+    <div class="row">
         <label for="passwordConfirmation"><b>Confirmation du Password</b></label>
-        <br>
+    </div>
+    <div class="row">
         <input type="password" placeholder="Enter Password" name="passwordConfirmation" formControlName='passwordConfirmation' required>
-        <br>
-        <button class="btn-auth" type="submit">S'inscrire</button>
-    </form>
-</div>
+    </div>
+    
+    <div class="row">
+        <button class="btn-auth btn btn-primary" type="submit">S'inscrire</button>
+    </div>
+</form>

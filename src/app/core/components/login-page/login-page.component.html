@@ -1,16 +1,28 @@
 <div>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <span class="text-danger" *ngIf="errorMessage">{{errorMessage}}</span>
-        <br>
-        <label for="username"><b>Username</b></label>
-        <br>
-        <input type="text" placeholder="Enter Username" name="login" formControlName='login' required>
-        <br>
-        <label for="password"><b>Password</b></label>
-        <br>
-        <input type="password" placeholder="Enter Password" name="password" formControlName='password' required>
-        <br>
-        <button class="btn-auth" type="submit">Se connecter</button>
+        <div class="row">
+            <span class="text-danger" *ngIf="errorMessage">{{errorMessage}}</span>
+        </div>
+
+        <div class="row">
+            <label for="login"><b>Login</b></label>
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Enter Username" name="login" formControlName='login' required>
+        </div>
+
+        <div class="row">
+            <label for="password"><b>Password</b></label>
+        </div>
+        <div class="row">
+            <input type="password" placeholder="Enter Password" name="password" formControlName='password' required>
+        </div>
+        
+        <div class="row">
+            <button class="btn-auth btn btn-primary" type="submit">Se connecter</button>
+        </div>
     </form>
-    <a routerLink="/register">Pas encore de compte ?</a>
+    <div class="row">
+        <a routerLink="/register">Pas encore de compte ?</a>
+    </div>
 </div>
