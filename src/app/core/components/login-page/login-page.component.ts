@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -20,7 +21,8 @@ export class LoginPageComponent implements OnInit{
    *
    */
   constructor(private _authService : AuthService,
-    private _fb : FormBuilder) {
+    private _fb : FormBuilder,
+    private _router : Router) {
       this.loginForm = _fb.group({
         login : [null,[Validators.required],[]],
         password : [null,[Validators.required],[]]
@@ -32,6 +34,9 @@ export class LoginPageComponent implements OnInit{
     if(this.loginForm.valid){
       this._authService.login(this.loginForm.value).subscribe({
         next:(value)=>{
+          if(value != undefined){
+            this._router.navigateByUrl("");
+          }
         },
       });
     }
