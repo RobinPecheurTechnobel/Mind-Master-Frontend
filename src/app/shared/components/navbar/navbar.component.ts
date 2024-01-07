@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit{
     return this._userConnected?.login;
   }
   isConnected() : boolean {
-    return this._userConnected == undefined;
+    return this._userConnected != undefined;
   }
   logout():void{
     this._authService.logout();

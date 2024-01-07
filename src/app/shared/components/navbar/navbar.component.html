@@ -1,12 +1,33 @@
-<nav class="navbar navbar-light">
-    <a routerLink="/">
-        <img src="../../../../assets/images/logo21.svg">
-    </a>
+<nav class="navbar navbar-light bg1">
     <div>
-        <button class="btn btn-primary" *ngIf="isConnected()" routerLink="login">Se connecter</button>
-        <button class="btn btn-primary" *ngIf="!isConnected()" (click)="logout()">Se déconnecter</button>
+        <input type="checkbox"  class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div>
+                <div class="spinner bg2 diagonal part-1"></div>
+                <div class="spinner bg2 horizontal"></div>
+                <div class="spinner bg2 diagonal part-2"></div>
+            </div>
+        </label>
+        <div id="sidebarMenu">
+            <div class="main-content-wrapper">
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+        
+        <a class="logo" routerLink="/">
+            <img src="../../../../assets/images/logo21.svg">
+        </a>
     </div>
     <div>
-        <button class="btn btn-primary">Autre commande</button>
+        <a *ngIf="isConnected()">{{getName()}}</a>
+    </div>
+    <div>
+        <button class="btn btn-primary" *ngIf="!isConnected()" routerLink="login">Se connecter</button>
+        <button class="btn btn-primary" *ngIf="isConnected()" (click)="logout()">Se déconnecter</button>
     </div>
 </nav>
+
+
+

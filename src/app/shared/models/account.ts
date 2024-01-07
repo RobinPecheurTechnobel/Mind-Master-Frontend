@@ -5,7 +5,9 @@ export interface AccountWithToken{
 export interface Account{
     id : number,
     login : string,
-    role : Role
+    role : Role,
+    pseudo : string,
+    email : string | undefined
 }
 export interface Role{
     key : number,
