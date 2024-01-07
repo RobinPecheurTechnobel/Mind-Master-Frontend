@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment.development';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     { provide : "urlAPI", useValue : environment.backendUrl+":"+environment.backendPort},

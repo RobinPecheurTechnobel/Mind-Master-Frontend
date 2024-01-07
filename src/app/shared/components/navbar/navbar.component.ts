@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit{
       next : (value)=>{
         this._userConnected = value;
       }
-    })
+    });
   }
   ngOnDestroy() :void{
     this._authService.logout();

@@ -26,6 +26,10 @@ export class AuthService {
   private _$errorMessage : BehaviorSubject<string|undefined> = new BehaviorSubject<string|undefined>(undefined);
   $errorMessage : Observable<string|undefined> = this._$errorMessage.asObservable();
 
+  getId():number|undefined{
+    return this._userConnected?.id;
+  }
+
   login(authForm : AuthForm ) : Observable<Account|undefined>{
     let url = this._urlBase+"/api/Auth/Login";
     this._httpClient.post<AccountWithToken>(url,authForm).subscribe({
