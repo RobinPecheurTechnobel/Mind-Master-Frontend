@@ -1,29 +1,31 @@
-<form [formGroup]="registerForm" (ngSubmit)="register()">
-    <div class="row">
-        <span class="text-danger" *ngIf="errorMessage">{{errorMessage}}</span>
-    </div>
-    <div class="row">
-        <label for="login"><b>Login</b></label>
-    </div>
-    <div class="row">
-        <input type="text" placeholder="Enter Login" name="login" formControlName='login' required>
-    </div>
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="row">
+            <span class="text-danger" *ngIf="errorMessage">{{errorMessage}}</span>
+        </div>
+        <div class="row">
+            <label for="login"><b>Login</b></label>
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Enter Login" name="login" formControlName='login' required>
+        </div>
+        
+        <div class="row">
+            <label for="password"><b>Password</b></label>
+        </div>
+        <div class="row">
+            <input type="password" placeholder="Enter Password" name="password" formControlName='password' required>
+        </div>
     
-    <div class="row">
-        <label for="password"><b>Password</b></label>
-    </div>
-    <div class="row">
-        <input type="password" placeholder="Enter Password" name="password" formControlName='password' required>
-    </div>
-
-    <div class="row">
-        <label for="passwordConfirmation"><b>Confirmation du Password</b></label>
-    </div>
-    <div class="row">
-        <input type="password" placeholder="Enter Password" name="passwordConfirmation" formControlName='passwordConfirmation' required>
-    </div>
-    
-    <div class="row">
-        <button class="btn-auth btn btn-primary" type="submit">S'inscrire</button>
-    </div>
-</form>
+        <div class="row">
+            <label for="passwordConfirmation"><b>Confirmation du Password</b></label>
+        </div>
+        <div class="row">
+            <input type="password" placeholder="Enter Password" name="passwordConfirmation" formControlName='passwordConfirmation' required>
+        </div>
+        
+        <div class="row">
+            <button class="btn-auth btn btn-primary" type="submit">S'inscrire</button>
+        </div>
+    </form>
+</div>
