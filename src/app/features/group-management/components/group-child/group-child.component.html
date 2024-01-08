@@ -1,0 +1,10 @@
+<h2>Membres ayant accès à ce groupe</h2>
+<div *ngIf="thinkers.length > 0; else wait">
+    <ul>
+        <li *ngFor="let thinker of thinkers">{{thinker.thinker.pseudo}} {{thinker.isOwner?"👑":""}}</li>
+    </ul>
+</div>
+<ng-template #wait>
+    <p>En attente de la réponse du server...</p>
+</ng-template>
+

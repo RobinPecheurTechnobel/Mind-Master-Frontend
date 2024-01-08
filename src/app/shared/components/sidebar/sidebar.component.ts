@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit{
     this._authSubscription = this._authService.$userConnected.subscribe({
       next : (authResponse) => {
         if(authResponse != undefined){
-          this._groupSubscription = this._groupService.GetGroups(Number(this._authService.getId())).subscribe({
+          this._groupSubscription = this._groupService.GetGroups(Number(authResponse.id)).subscribe({
             next : (value) => {
               this.groups = value;
             }

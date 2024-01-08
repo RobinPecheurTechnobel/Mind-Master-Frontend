@@ -1,0 +1,8 @@
+<div *ngIf="group; else wait">
+    <H1>{{group.name}}</H1>
+    <p>{{group.description}}</p>
+</div>
+<ng-template #wait>
+    <h1>En attente d'infromation sur ce groupe ...</h1>
+</ng-template>
+<app-group-child [idRoute]="sendId()"></app-group-child>

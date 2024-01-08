@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { Account } from '../../models/account';
+import { group } from '../../models/group';
+import { GroupService } from '../../services/group.service';
 
 @Component({
   selector: 'navbar',
@@ -12,8 +14,12 @@ export class NavbarComponent implements OnInit{
 
   private _userConnected : Account | undefined;
   private _subscription :Subscription = new Subscription();
+  private _groupSubscription : Subscription = new Subscription();
 
-  constructor(private _authService : AuthService){}
+  groups : group[] = [];
+
+  constructor(private _authService : AuthService,
+    private _groupService : GroupService){}
 
   getName() : string|undefined {
     return this._userConnected?.login;
@@ -27,14 +33,24 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit(): void {
     this._subscription = this._authService.$userConnected.subscribe({
-      next : (value)=>{
-        this._userConnected = value;
+      next : (authResponse)=>{
+        this._userConnected = authResponse;
+        
+        if(authResponse != undefined){
+          
+          this._groupSubscription = this._groupService.GetGroups(authResponse.id).subscribe({
+            next : (value) => {
+              this.groups = value;
+            }
+          })
+        }
       }
     });
   }
   ngOnDestroy() :void{
     this._authService.logout();
     this._subscription.unsubscribe();
+    this._groupSubscription.unsubscribe();
   }
 
 }

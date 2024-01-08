@@ -5,10 +5,7 @@
         </div>
     </div>
     <div class="row">
-        <div class ="col-sm-2" *ngIf="isConnected()">
-            <app-sidebar></app-sidebar>
-        </div>
-        <div class="container" [ngClass]="isConnected() ? 'col-sm-10': 'col-sm-12'">
+        <div class="container col-sm-12">
             <router-outlet></router-outlet>
         </div>
     </div>

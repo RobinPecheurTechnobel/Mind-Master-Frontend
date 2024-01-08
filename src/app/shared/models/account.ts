@@ -13,3 +13,8 @@ export interface Role{
     key : number,
     name : string
 }
+export interface ThinkerInGroup
+{
+    thinker : Account,
+    isOwner: boolean
+}

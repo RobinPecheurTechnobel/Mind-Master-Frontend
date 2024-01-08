@@ -9,11 +9,14 @@
             </div>
         </label>
         <div id="sidebarMenu">
-            <div class="main-content-wrapper">
-                <a href="#news">News</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
+            <div class="main-content-wrapper" *ngIf="isConnected(); else noGroup">
+                <a class="bg1-lighter" *ngFor="let group of groups" [routerLink]="'/group/'+group.id">{{group.name}}</a>
             </div>
+            <ng-template #noGroup>
+                <div class="main-content-wrapper">
+                    <a class="bg1-lighter">Public</a>
+                </div>
+            </ng-template>
         </div>
         
         <a class="logo" routerLink="/">

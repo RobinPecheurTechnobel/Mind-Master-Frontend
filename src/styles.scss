@@ -4,21 +4,28 @@
 @import 'bootstrap/scss/bootstrap';
 
 .container{
-    padding: 50px;
-    width: 25rem;
+    padding: 50px 10% 50px 10%;
+    min-width: 25rem;
 }
 .btn{
     border: 0px;
     color: #000;
 }
 .bg1{
-    background-color: #e0f0f9;
+    background-color: #C3E1EB;
+}
+.bg1-lighter{
+    background-color: #E1F5FA;
 }
 .btn,
 .btn-primary,
 .bg2{
-    background-color: #b0bfda;
+    background-color: #A7C8DB;
 }
-app-sidebar{
-    background-color: #ee9999;
+.bg-success{
+    background-color: #A7DBBE;
 }
+.bg-fail{
+    background-color: #DBAFB0;
+}
+
