@@ -1,0 +1,52 @@
+.displayMember{
+    height: 4.5rem;
+}
+.spinner{
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0.8rem;
+    width: 3.6rem;
+}
+.horizontal{
+    margin-top: 1.4rem;
+}
+.vertical{
+    transform: rotate(90deg);
+    margin-top: 1.4rem;
+}
+.mini-spinner{
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0.6rem;
+    width: 2.7rem;
+}
+li{
+    margin-bottom: 0.6rem;  
+    .symbol{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button{
+            border:0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .text{
+        text-align: left;
+        vertical-align: center;
+    }
+    svg{
+        height: 1.5rem;
+    }
+    .notOwner path{
+        fill: #A7C8DB;
+    }
+    .owner path{
+        fill: #bbbb00;
+    }
+}

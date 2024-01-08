@@ -29,6 +29,11 @@ export class AuthService {
   getId():number|undefined{
     return this._userConnected?.id;
   }
+  
+  isUserConnectedOneOfThese(ids : number[]): boolean {
+    if(this.getId() == undefined) return false;
+        return ids.filter(id => id == this.getId()).length > 0;
+  }
 
   login(authForm : AuthForm ) : Observable<Account|undefined>{
     let url = this._urlBase+"/api/Auth/Login";

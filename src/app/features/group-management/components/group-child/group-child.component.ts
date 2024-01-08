@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ThinkerInGroup } from 'src/app/shared/models/account';
-import { GroupService } from 'src/app/shared/services/group.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { GroupService } from 'src/app/features/group-management/services/group.service';
 
 @Component({
   selector: 'app-group-child',
@@ -15,7 +16,8 @@ export class GroupChildComponent implements OnChanges{
   /**
    *
    */
-  constructor(private _groupService : GroupService) {
+  constructor(private _groupService : GroupService,
+      private _authService : AuthService) {
     
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -27,5 +29,10 @@ export class GroupChildComponent implements OnChanges{
         }
       })
     }
+  }
+  isOwner(): boolean{
+
+    let isUserConnectedOneOfThese = this._authService.isUserConnectedOneOfThese(this.thinkers.filter(t => t.isOwner).map(t => t.thinker.id));
+    return isUserConnectedOneOfThese;
   }
 }
