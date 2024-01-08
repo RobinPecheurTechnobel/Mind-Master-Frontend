@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { group } from 'src/app/shared/models/group';
-import { GroupService } from 'src/app/shared/services/group.service';
+import { GroupService } from 'src/app/features/group-management/services/group.service';
 
 @Component({
   selector: 'app-group-parent',

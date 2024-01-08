@@ -1,0 +1,11 @@
+<h2>Assemblages d'idées disponible pour ce groupe</h2>
+<div *ngIf="assemblies.length == 0; else displayAssemblies" class="row">
+    <p>Aucun assemblage d'idées n'a été trouvé pour ce groupe</p>
+</div>
+<ng-template #displayAssemblies>
+    <ul>
+        <li *ngFor="let assembly of assemblies">
+            <h3>{{assembly.title}}</h3>
+        </li>
+    </ul>
+</ng-template>

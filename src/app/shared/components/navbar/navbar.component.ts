@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { Account } from '../../models/account';
 import { group } from '../../models/group';
-import { GroupService } from '../../services/group.service';
+import { GroupService } from '../../../features/group-management/services/group.service';
 
 @Component({
   selector: 'navbar',

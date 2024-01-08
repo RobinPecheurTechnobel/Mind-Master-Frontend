@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupService } from '../../services/group.service';
+import { GroupService } from '../../../features/group-management/services/group.service';
 import { group } from '../../models/group';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
