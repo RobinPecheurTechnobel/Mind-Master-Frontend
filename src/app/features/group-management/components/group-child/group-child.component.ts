@@ -40,7 +40,19 @@ export class GroupChildComponent implements OnChanges{
     let isUserConnectedOneOfThese = this._authService.isUserConnectedOneOfThese(this.thinkers.filter(t => t.isOwner).map(t => t.thinker.id));
     return isUserConnectedOneOfThese;
   }
+
+  
   changeRight(groupeId : number, thinkerId : number, isOwner : boolean):void{
+    if(!isOwner) this.RemoveRight(groupeId,thinkerId,isOwner);
+    else{ this.GiveRight(groupeId,thinkerId,isOwner);}
+  }
+  @needConfirmation({
+    title : "Confirmation de suppression",
+    message : `Voulez-vous vraiment retirer des droits à cette personne ?`,
+    btnCancelText: "Non",
+    btnOkText: "Oui"
+  })
+  RemoveRight(groupeId : number, thinkerId : number, isOwner : boolean){
     this._groupService.ChangeRightInThisGroup(groupeId,thinkerId,isOwner).subscribe({
       next : (value) =>{
         this.GetThinkers();
@@ -49,7 +61,23 @@ export class GroupChildComponent implements OnChanges{
       }
     });
   }
-  @needConfirmation( {
+  @needConfirmation({
+    title : "Confirmation de suppression",
+    message : `Voulez-vous vraiment donner des droits à cette personne ?`,
+    btnCancelText: "Non",
+    btnOkText: "Oui"
+  })
+  GiveRight(groupeId : number, thinkerId : number, isOwner : boolean){
+    this._groupService.ChangeRightInThisGroup(groupeId,thinkerId,isOwner).subscribe({
+      next : (value) =>{
+        this.GetThinkers();
+      },
+      error : (error) => {
+      }
+    });
+  }
+
+  @needConfirmation({
     title : "Confirmation de suppression",
     message : "Voulez-vous vraiment retirer cet utilisateur de ce groupe ?",
     btnCancelText: "Non",
