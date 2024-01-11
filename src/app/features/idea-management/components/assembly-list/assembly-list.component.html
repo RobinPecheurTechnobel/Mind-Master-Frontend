@@ -5,7 +5,9 @@
 <ng-template #displayAssemblies>
     <ul>
         <li *ngFor="let assembly of assemblies">
-            <h3>{{assembly.title}}</h3>
+            <a [routerLink]="'/assembly/'+assembly.id">
+                <h3>{{assembly.title}}</h3>                   
+            </a>
         </li>
     </ul>
 </ng-template>

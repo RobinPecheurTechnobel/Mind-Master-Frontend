@@ -1,0 +1,10 @@
+<div *ngIf="assembly">
+    <h1>{{assembly.title}}</h1>
+    
+    <div *ngFor="let conceptAssembly of GetConceptSort()" (mouseover)="GetTitle(conceptAssembly.concept.id)"
+    (mouseout)="(GetNoTitle())">
+        <div *ngFor="let conceptIdea of GetIdeaSort(conceptAssembly.concept.ideas)">
+            <p>{{conceptIdea.idea.content}}</p>
+        </div>
+    </div>
+</div>

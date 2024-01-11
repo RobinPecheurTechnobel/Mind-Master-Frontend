@@ -18,4 +18,8 @@ export class IdeaService {
     let url = this._urlBase + "/api/Assembly/Group/" + idGroup;
     return this._httpClient.get<Assembly[]>(url);
   }
+  GetOneAssembly(idAssembly: number) : Observable<Assembly>{
+    let url = this._urlBase + "/api/Assembly/" + idAssembly;
+    return this._httpClient.get<Assembly>(url);
+  }
 }
