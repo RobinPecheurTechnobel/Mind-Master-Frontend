@@ -23,16 +23,38 @@ export class GroupChildComponent implements OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['idRoute'] && changes['idRoute'].currentValue != -1)
     {
-      this._groupService.GetThinkersForThisOne(this.idRoute).subscribe({
-        next : (value) => {
-          this.thinkers = value;
-        }
-      })
+      this.GetThinkers();
     }
+  }
+  GetThinkers(){
+    this._groupService.GetThinkersForThisOne(this.idRoute).subscribe({
+      next : (value) => {
+        this.thinkers = value;
+      }
+    });
   }
   isOwner(): boolean{
 
     let isUserConnectedOneOfThese = this._authService.isUserConnectedOneOfThese(this.thinkers.filter(t => t.isOwner).map(t => t.thinker.id));
     return isUserConnectedOneOfThese;
+  }
+  changeRight(groupeId : number, thinkerId : number, isOwner : boolean):void{
+    this._groupService.ChangeRightInThisGroup(groupeId,thinkerId,isOwner).subscribe({
+      next : (value) =>{
+        this.GetThinkers();
+      },
+      error : (error) => {
+      }
+    });
+  }
+  removeThinker(groupId:number, thinkerId: number)
+  {
+    this._groupService.RemoveThinker(groupId,thinkerId).subscribe({
+      next : (value) =>{
+        this.GetThinkers();
+      },
+      error : (error) => {
+      }
+    });
   }
 }

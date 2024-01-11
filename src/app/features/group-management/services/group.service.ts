@@ -27,4 +27,15 @@ export class GroupService {
     let url = this._urlBase + "/api/Group/Thinker/" + groupId ;
     return this._httpClient.get<ThinkerInGroup[]>(url);
   }
+  ChangeRightInThisGroup(groupId : number, thinkerId : number, right : boolean) : Observable<any>{
+    let url = this._urlBase + `/api/Group/${groupId}/Thinker/${thinkerId}`;
+    let  patches = [
+      {op: "add", path: "/isOwner", value: right}
+    ];
+    return this._httpClient.patch(url,patches,{headers:{"Content-Type":"application/json-patch+json"}});
+  }
+  RemoveThinker(groupId: number, thinkerId: number) :Observable<any>{
+    let url = this._urlBase + `/api/Group/${groupId}/Thinker/${thinkerId}`;
+    return this._httpClient.delete(url);
+  }
 }
