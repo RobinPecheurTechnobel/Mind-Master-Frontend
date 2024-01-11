@@ -11,7 +11,7 @@ import { GroupService } from '../../../features/group-management/services/group.
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit{
-
+  isChecked = false;
   private _userConnected : Account | undefined;
   private _subscription :Subscription = new Subscription();
   private _groupSubscription : Subscription = new Subscription();

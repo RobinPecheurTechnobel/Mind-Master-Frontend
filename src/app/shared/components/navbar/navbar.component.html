@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg1">
     <div>
-        <input type="checkbox"  class="openSidebarMenu" id="openSidebarMenu">
+        <input type="checkbox"  class="openSidebarMenu" id="openSidebarMenu" [(ngModel)]="isChecked">
         <label for="openSidebarMenu" class="sidebarIconToggle">
             <div>
                 <div class="spinner bg2 diagonal part-1"></div>
@@ -10,11 +10,11 @@
         </label>
         <div id="sidebarMenu">
             <div class="main-content-wrapper" *ngIf="isConnected(); else noGroup">
-                <a class="bg1-lighter" *ngFor="let group of groups" [routerLink]="'/group/'+group.id">{{group.name}}</a>
+                <a class="bg1-lighter" *ngFor="let group of groups" [routerLink]="'/group/'+group.id" (click)="isChecked = false;">{{group.name}}</a>
             </div>
             <ng-template #noGroup>
                 <div class="main-content-wrapper">
-                    <a class="bg1-lighter">Public</a>
+                    <a class="bg1-lighter" (click)="isChecked = false;">Public</a>
                 </div>
             </ng-template>
         </div>
