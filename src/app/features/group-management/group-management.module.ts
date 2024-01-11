@@ -5,6 +5,7 @@ import { GroupParentComponent } from './components/group-parent/group-parent.com
 import { GroupChildComponent } from './components/group-child/group-child.component';
 import { AssemblyListComponent } from '../idea-management/components/assembly-list/assembly-list.component';
 import { IdeaManagementModule } from '../idea-management/idea-management.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -16,7 +17,8 @@ import { IdeaManagementModule } from '../idea-management/idea-management.module'
   imports: [
     GroupManagementRoutingModule,
     CommonModule,
-    IdeaManagementModule
+    IdeaManagementModule,
+    SharedModule
   ]
 })
 export class GroupManagementModule { }

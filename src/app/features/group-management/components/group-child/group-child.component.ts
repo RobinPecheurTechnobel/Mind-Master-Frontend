@@ -2,6 +2,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ThinkerInGroup } from 'src/app/shared/models/account';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { GroupService } from 'src/app/features/group-management/services/group.service';
+import { needConfirmation } from 'src/app/shared/decorators/confirm-dialog.decorator';
+import { ConfirmDialogData } from 'src/app/shared//models/confirm-dialog-data'; 
 
 @Component({
   selector: 'app-group-child',
@@ -47,6 +49,12 @@ export class GroupChildComponent implements OnChanges{
       }
     });
   }
+  @needConfirmation( {
+    title : "Confirmation de suppression",
+    message : "Voulez-vous vraiment retirer cet utilisateur de ce groupe ?",
+    btnCancelText: "Non",
+    btnOkText: "Oui"
+  })
   removeThinker(groupId:number, thinkerId: number)
   {
     this._groupService.RemoveThinker(groupId,thinkerId).subscribe({

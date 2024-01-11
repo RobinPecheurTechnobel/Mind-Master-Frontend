@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ENVIRONMENT_INITIALIZER, NgModule, inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -10,6 +10,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { DialogService } from './shared/services/dialog.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,14 @@ import { SharedModule } from './shared/shared.module';
   providers: [
     { provide : "urlAPI", useValue : environment.backendUrl+":"+environment.backendPort},
     { provide : HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi : true },
+    { provide : ENVIRONMENT_INITIALIZER, useFactory : initializeDialogService, multi:true}
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function initializeDialogService() {
+  return () => {
+    inject(DialogService)
+  };
+}
