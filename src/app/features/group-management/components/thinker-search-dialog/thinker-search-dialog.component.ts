@@ -5,6 +5,7 @@ import { ThinkerSearchDialogService } from '../../services/thinker-search-dialog
 import { SearchDialogComponent } from 'src/app/shared/components/search-dialog/search-dialog.component';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { GroupService } from '../../services/group.service';
+import { ThinkerService } from 'src/app/features/thinker-management/services/thinker.service';
 
 @Component({
   selector: 'app-thinker-search-dialog',
@@ -18,7 +19,7 @@ export class ThinkerSearchDialogComponent extends SearchDialogComponent<Account>
    */
   constructor(protected override activeModal: NgbActiveModal,
     protected override searchDialogService : ThinkerSearchDialogService,
-    private _GroupService : GroupService) {
+    private _ThinkerService : ThinkerService) {
     super(activeModal, searchDialogService );
   }
   
@@ -27,7 +28,7 @@ export class ThinkerSearchDialogComponent extends SearchDialogComponent<Account>
       debounceTime(500),
       distinctUntilChanged(),
       switchMap(searchValue =>
-        this._GroupService.searchThinker(searchValue))
+        this._ThinkerService.searchThinker(searchValue))
     );
     this.items$.subscribe({
       next : (value) => {

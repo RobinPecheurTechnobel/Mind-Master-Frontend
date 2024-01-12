@@ -42,8 +42,4 @@ export class GroupService {
     let url = this._urlBase + `/api/Group/${groupId}/Thinker/${thinkerId}`;
     return this._httpClient.post(url,null);
   }
-  searchThinker(searchValue : string): Observable<Account[]>{
-    let url = this._urlBase + `/api/Thinker/search/${searchValue}`;
-    return this._httpClient.get<Account[]>(url);
-  }
 }
