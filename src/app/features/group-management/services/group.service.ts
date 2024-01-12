@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { group } from '../../../shared/models/group';
 import { Observable } from 'rxjs';
-import { ThinkerInGroup } from '../../../shared/models/account';
+import { Account, ThinkerInGroup } from '../../../shared/models/account';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +37,13 @@ export class GroupService {
   RemoveThinker(groupId: number, thinkerId: number) :Observable<any>{
     let url = this._urlBase + `/api/Group/${groupId}/Thinker/${thinkerId}`;
     return this._httpClient.delete(url);
+  }
+  AddThinker(groupId: number, thinkerId: number):Observable<any>{
+    let url = this._urlBase + `/api/Group/${groupId}/Thinker/${thinkerId}`;
+    return this._httpClient.post(url,null);
+  }
+  searchThinker(searchValue : string): Observable<Account[]>{
+    let url = this._urlBase + `/api/Thinker/search/${searchValue}`;
+    return this._httpClient.get<Account[]>(url);
   }
 }

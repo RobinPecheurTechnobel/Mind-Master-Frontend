@@ -1,0 +1,18 @@
+<div class="modalBody">
+    <div class="header bg1">
+        <h2>{{title}}</h2>
+        <button class="quitButton bg2" (click)="dismiss()">✖
+        </button>
+    </div>
+    
+    <div class="main">
+        <input type="text" (keyup)="search(getValue($event))">
+        <ul>
+            <li *ngFor="let item of items$ | async">
+                <button (click)="accept(item)">
+                    <strong>{{item.pseudo}}</strong>
+                </button>
+            </li>
+          </ul>
+    </div>
+</div>

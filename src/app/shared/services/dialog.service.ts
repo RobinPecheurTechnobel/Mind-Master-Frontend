@@ -2,7 +2,7 @@ import { Component, ComponentDecorator, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog.component';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { ConfirmDialogData } from '../models/confirm-dialog-data';
+import { ConfirmDialogData } from '../models/dialog-data';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +11,17 @@ export class DialogService {
   modalRef!: NgbModalRef
   private componentSubscriber!: Subject<boolean>;
 
-  private static instance : DialogService | null= null;
-  constructor(private modalService: NgbModal) {
+  static instance : DialogService | null= null;
+  constructor(private _modalService: NgbModal) {
     DialogService.instance = this;
   }
-  public static getInstance(){
+  static getInstance(){
     return DialogService.instance;
   }
 
-  public confirm(data : ConfirmDialogData,
+  confirm(data : ConfirmDialogData,
     dialogSize: 'sm'|'lg' = 'sm'): Observable<boolean> {
-    this.modalRef = this.modalService.open(ConfirmDialogComponent, { size: dialogSize });
+    this.modalRef = this._modalService.open(ConfirmDialogComponent, { size: dialogSize });
     this.modalRef.componentInstance.title = data.title;
     this.modalRef.componentInstance.message = data.message;
     this.modalRef.componentInstance.btnOkText = data.btnOkText;

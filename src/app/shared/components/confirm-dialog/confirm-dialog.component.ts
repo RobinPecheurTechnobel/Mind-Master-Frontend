@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output, inject } from '@angular/core';
-import { ConfirmDialogData } from '../../models/confirm-dialog-data';
+import { ConfirmDialogData } from '../../models/dialog-data';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({

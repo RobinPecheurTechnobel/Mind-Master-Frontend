@@ -1,5 +1,5 @@
 import { ConfirmDialogComponent } from "../components/confirm-dialog/confirm-dialog.component";
-import { ConfirmDialogData } from "../models/confirm-dialog-data";
+import { ConfirmDialogData } from "../models/dialog-data";
 import { DialogService } from "../services/dialog.service";
 
 const defaultConfirmData = {
