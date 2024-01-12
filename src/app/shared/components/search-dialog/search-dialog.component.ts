@@ -9,7 +9,7 @@ import { SearchDialogService } from '../../services/search-dialog.service';
   templateUrl: './search-dialog.component.html',
   styleUrls: ['./search-dialog.component.scss']
 })
-export class SearchDialogComponent<T> implements OnInit, OnChanges{
+export class SearchDialogComponent<T> implements OnInit{
   itemDisplayed : T[];
   items$!: Observable<T[]>;
   protected searchText$ = new Subject<string>();  
@@ -27,12 +27,6 @@ constructor(protected activeModal: NgbActiveModal,
     this.itemDisplayed = [];
   
 }
-  ngOnChanges(changes: SimpleChanges): void {
-    if(changes['itemDisplayed'])
-    {
-      console.log(this.itemDisplayed);
-    }
-  }
   ngOnInit(): void {
     this.items$ = this.searchText$.pipe(
       debounceTime(500),

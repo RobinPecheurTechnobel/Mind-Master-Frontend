@@ -26,7 +26,6 @@ export abstract class SearchDialogService<T> {
     this.modalRef.componentInstance.closeMeEvent.subscribe(() => this.closeModal());
     this.modalRef.componentInstance.chooseMeEvent.subscribe({
       next : (value:T) => {
-        console.log(value);
         this.ok(value);
       }
       });

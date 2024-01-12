@@ -16,7 +16,6 @@ export function needConfirmation ( confirmData : ConfirmDialogData = defaultConf
         const originalMethod = descriptor.value;
 
         descriptor.value = async function (...args: any) {
-            console.log("ok");
             DialogService.getInstance()?.confirm(
                 confirmData
                 ).subscribe((validation) => {
