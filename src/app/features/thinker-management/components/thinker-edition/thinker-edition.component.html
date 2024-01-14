@@ -1,0 +1,12 @@
+<h1>Modifier vos informations personnelles :</h1>
+<form [formGroup]="profilForm" (ngSubmit)="edit()">
+    <div>
+        <label for="pseudo">Pseudonyme : </label>
+        <input type="text" placeholder="Enter Pseudo" name="pseudo" formControlName='pseudo' required>
+    </div>
+    <div>
+        <label for="email">Adresse mail : </label>
+        <input type="text" placeholder="Indiquer un mail" name="email" formControlName='email'>
+    </div>
+    <button type="submit">Modifier</button>
+</form>

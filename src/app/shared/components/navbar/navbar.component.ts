@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit{
     private _groupService : GroupService){}
 
   getName() : string|undefined {
-    return this._userConnected?.login;
+    return this._userConnected?.pseudo;
   }
   isConnected() : boolean {
     return this._userConnected != undefined;

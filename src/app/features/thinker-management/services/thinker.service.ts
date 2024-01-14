@@ -21,4 +21,14 @@ export class ThinkerService {
     let url = this._urlBase + `/api/Thinker/search/${searchValue}`;
     return this._httpClient.get<Account[]>(url);
   }
+  
+  UpdateUser(thinkerId: number, value: Account) :Observable <any>{
+    console.log(value);
+    let url = this._urlBase + `/api/Thinker/${thinkerId}`;
+    let patches = [
+      {op: "add", path: "/Pseudo", value: value.pseudo},
+      {op: "add", path: "/Email", value: value.email}
+    ];
+    return this._httpClient.patch<any>(url,patches,{headers:{"Content-Type":"application/json-patch+json"}});
+  }
 }
