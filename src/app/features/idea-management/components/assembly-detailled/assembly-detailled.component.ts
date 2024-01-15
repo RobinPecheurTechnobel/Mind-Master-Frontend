@@ -10,6 +10,8 @@ import { Assembly, ConceptInAssembly, IdeaInConcept } from 'src/app/shared/model
 })
 export class AssemblyDetailledComponent implements OnInit{
 
+  isVisibilityActivate : boolean = false;
+
   idAssembly : number;
   assembly : Assembly| undefined = undefined;
 

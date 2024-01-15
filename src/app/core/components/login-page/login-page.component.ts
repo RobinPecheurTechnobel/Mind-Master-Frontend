@@ -35,7 +35,7 @@ export class LoginPageComponent implements OnInit{
       this._authService.login(this.loginForm.value).subscribe({
         next:(value)=>{
           if(value != undefined){
-            this._router.navigateByUrl("");
+            this._router.navigateByUrl("/group/1");
           }
         },
       });

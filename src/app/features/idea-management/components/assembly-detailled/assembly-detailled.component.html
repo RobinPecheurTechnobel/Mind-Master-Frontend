@@ -1,10 +1,23 @@
 <div *ngIf="assembly">
     <h1>{{assembly.title}}</h1>
     
-    <div *ngFor="let conceptAssembly of GetConceptSort()" (mouseover)="GetTitle(conceptAssembly.concept.id)"
-    (mouseout)="(GetNoTitle())">
+    <div class="controls">
+        <input type="checkbox" class="visibility" [(ngModel)]="isVisibilityActivate">
+        <div (click)="isVisibilityActivate = !isVisibilityActivate">
+            <div id="yeuxA">
+                <div id="yeuxB"></div>
+            </div>
+            <div id="yeuxD">
+                <div id="yeuxC"></div>
+            </div>
+            <div id="yeuxE"></div>
+        </div>
+    </div>
+
+    <div *ngFor="let conceptAssembly of GetConceptSort()" (mouseover)="GetTitle(conceptAssembly.concept.id)" class=concept [isVisibilityActivate]="isVisibilityActivate">
         <div *ngFor="let conceptIdea of GetIdeaSort(conceptAssembly.concept.ideas)">
-            <p>{{conceptIdea.idea.content}}</p>
+            <p class="idea"  [isVisibilityActivate]="isVisibilityActivate">{{conceptIdea.idea.content}}</p>
         </div>
     </div>
 </div>
+

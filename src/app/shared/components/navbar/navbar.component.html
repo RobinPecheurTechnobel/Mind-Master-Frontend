@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg1">
     <div>
-        <input type="checkbox"  class="openSidebarMenu" id="openSidebarMenu" [(ngModel)]="isChecked">
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" [(ngModel)]="isChecked">
         <label for="openSidebarMenu" class="sidebarIconToggle">
             <div>
                 <div class="spinner bg2 diagonal part-1"></div>
@@ -15,7 +15,7 @@
             </div>
             <ng-template #noGroup>
                 <div class="main-content-wrapper">
-                    <a class="bg1-lighter" (click)="isChecked = false;">Public</a>
+                    <a class="bg1-lighter" routerLink="/group/1" (click)="isChecked = false;">Public</a>
                 </div>
             </ng-template>
         </div>
@@ -25,11 +25,11 @@
         </a>
     </div>
     <div>
-        <button class="btn btn-primary" *ngIf="isConnected()" routerLink="profil">{{getName()}}</button>
+        <button class="btn btn-primary" *ngIf="isConnected()" (click)="isChecked = false;" routerLink="profil">{{getName()}}</button>
     </div>
     <div>
-        <button class="btn btn-primary" *ngIf="!isConnected()" routerLink="login">Se connecter</button>
-        <button class="btn btn-primary" *ngIf="isConnected()" (click)="logout()">Se déconnecter</button>
+        <button class="btn btn-primary" *ngIf="!isConnected()" (click)="isChecked = false;" routerLink="login">Se connecter</button>
+        <button class="btn btn-primary" *ngIf="isConnected()" (click)="isChecked = false; logout()">Se déconnecter</button>
     </div>
 </nav>
 

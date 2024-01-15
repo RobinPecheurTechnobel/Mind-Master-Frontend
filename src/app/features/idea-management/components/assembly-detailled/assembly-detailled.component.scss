@@ -1,0 +1,82 @@
+.controls{
+    display : flex;
+}
+.idea{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+#yeuxA 
+{
+    transition: all 0.3s;
+    height: 25px;
+    overflow: hidden;
+    opacity: 0;
+    
+    #yeuxB 
+    {
+        transition: all 0.3s;
+        height: 50px;
+        width: 50px;
+        border: 5px solid;
+        border-color: white;
+        border-radius: 50%;
+        margin-top: 10px;
+        //margin-left: -20px;
+        opacity: 0;
+    }
+}
+#yeuxD
+{
+    transition: all 0.3s;
+    height: 25px;
+    overflow: hidden;
+    
+    #yeuxC
+    {
+        transition: all 0.3s;
+        height: 50px;
+        width: 50px;
+        border: 5px solid;
+        border-color : #A7C8DB;
+        border-radius: 50%;
+        margin-top: 0px;
+        //margin-left: -20px;
+        transform:translateY(-36px);
+    }
+}
+#yeuxE{
+    transition: all 0.3s;
+    height: 5px;
+    width: 5px;
+    border: 5px solid;
+    border-color: white;
+    opacity: 0;
+    transform:translate(20px,-30px);
+    
+    border-radius: 50%;
+    margin-top: 0px;
+    //margin-left: -20px;
+}
+input[type=checkbox]:checked
+{
+    ~ div > #yeuxA {
+        transition: all 0.3s;
+        border-color : #A7C8DB;
+        opacity: 1;
+    }
+
+    ~ div > #yeuxA > #yeuxB{
+        transition: all 0.3s;
+        border-color : #A7C8DB;
+        opacity: 1;
+    }
+    ~ div > #yeuxE{
+        transition: all 0.3s;
+        border-color : #A7C8DB;
+        opacity: 1;
+    }
+}
+.visibility{
+    display:none;
+}
