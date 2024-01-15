@@ -42,4 +42,9 @@ export class GroupService {
     let url = this._urlBase + `/api/Group/${groupId}/Thinker/${thinkerId}`;
     return this._httpClient.post(url,null);
   }
+  
+  create(value: group) : Observable<group>{
+    let url = this._urlBase + `/api/Group`;
+    return this._httpClient.post<group>(url,value);
+  }
 }

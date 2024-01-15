@@ -7,6 +7,8 @@ import { AssemblyListComponent } from '../idea-management/components/assembly-li
 import { IdeaManagementModule } from '../idea-management/idea-management.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ThinkerSearchDialogComponent } from './components/thinker-search-dialog/thinker-search-dialog.component';
+import { GroupCreationComponent } from './components/group-creation/group-creation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,13 +16,16 @@ import { ThinkerSearchDialogComponent } from './components/thinker-search-dialog
   declarations: [
     GroupParentComponent,
     GroupChildComponent,
-    ThinkerSearchDialogComponent
+    ThinkerSearchDialogComponent,
+    GroupCreationComponent
   ],
   imports: [
     GroupManagementRoutingModule,
     CommonModule,
     IdeaManagementModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class GroupManagementModule { }

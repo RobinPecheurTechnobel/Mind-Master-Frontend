@@ -24,7 +24,8 @@ nav{
     overflow: none;
     width: 25%;
     z-index: 100;
-    top:-171px ;
+    top:0px ;
+    left: -25%;
     transform: translateY(0px); /*change here related your menu height*/
     transform: translateX(-15px);
 }
@@ -103,7 +104,8 @@ input[type=checkbox]:checked
     ~ #sidebarMenu {
         transform: translatey(0px);
         transform: translateX(-15px);
-        top:5rem /*change here related your top menu height*/
+        top:5rem; /*change here related your top menu height*/
+        left:0%;
     }
     ~ .sidebarIconToggle >div> .horizontal {
         transition: all 0.3s;

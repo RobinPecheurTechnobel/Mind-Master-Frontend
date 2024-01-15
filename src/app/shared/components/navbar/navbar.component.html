@@ -11,6 +11,7 @@
         <div id="sidebarMenu">
             <div class="main-content-wrapper" *ngIf="isConnected(); else noGroup">
                 <a class="bg1-lighter" *ngFor="let group of groups" [routerLink]="'/group/'+group.id" (click)="isChecked = false;">{{group.name}}</a>
+                <a class="bg1-lighter" [routerLink]="'/group/new'" (click)="isChecked = false;">Créer un groupe</a>
             </div>
             <ng-template #noGroup>
                 <div class="main-content-wrapper">
