@@ -14,12 +14,19 @@ export class IdeaService {
     this._httpClient = httpClient;
   }
 
-  GetAssembliesForThisGroup(idGroup: number) : Observable<Assembly[]> {
-    let url = this._urlBase + "/api/Assembly/Group/" + idGroup;
+  GetAssembliesForThisGroup(groupId: number) : Observable<Assembly[]> {
+    let url = this._urlBase + "/api/Assembly/Group/" + groupId;
     return this._httpClient.get<Assembly[]>(url);
   }
   GetOneAssembly(idAssembly: number) : Observable<Assembly>{
     let url = this._urlBase + "/api/Assembly/" + idAssembly;
     return this._httpClient.get<Assembly>(url);
+  }
+  
+  searchAssemblies(groupId :number,searchValue: string) : Observable<Assembly[]>{
+    searchValue = searchValue.replaceAll(" ","");
+    
+    let url = this._urlBase + `/api/Assembly/Group/${groupId}?withThis=${searchValue}`;
+    return this._httpClient.get<Assembly[]>(url);
   }
 }

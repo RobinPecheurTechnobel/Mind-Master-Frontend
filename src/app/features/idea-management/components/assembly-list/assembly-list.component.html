@@ -1,4 +1,6 @@
 <h2>Assemblages d'idées disponible pour ce groupe</h2>
+<app-assembly-creation *ngIf="isConnected()" [groupId]="groupId"></app-assembly-creation>
+<input type="text" [(ngModel)]="searchInformation" (keyup)="search()">
 <div *ngIf="assemblies.length == 0; else displayAssemblies" class="row">
     <p>Aucun assemblage d'idées n'a été trouvé pour ce groupe</p>
 </div>

@@ -6,4 +6,4 @@
     <h1>En attente d'infromation sur ce groupe ...</h1>
 </ng-template>
 <app-group-child *ngIf="sendId() != 1" [idRoute]="sendId()"></app-group-child>
-<app-assembly-list [idGroup]="sendId()"></app-assembly-list>
+<app-assembly-list [groupId]="sendId()"></app-assembly-list>

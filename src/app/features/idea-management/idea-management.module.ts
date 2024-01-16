@@ -6,6 +6,7 @@ import { IdeaManagementRoutingModule } from './idea-management-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HoverCompositionDirective } from './directives/hover-composition.directive';
+import { AssemblyCreationComponent } from './components/assembly-creation/assembly-creation.component';
 
 
 
@@ -13,7 +14,8 @@ import { HoverCompositionDirective } from './directives/hover-composition.direct
   declarations: [
     AssemblyListComponent,
     AssemblyDetailledComponent,
-    HoverCompositionDirective
+    HoverCompositionDirective,
+    AssemblyCreationComponent
   ],
   imports: [
     CommonModule,
