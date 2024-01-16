@@ -29,4 +29,14 @@ export class IdeaService {
     let url = this._urlBase + `/api/Assembly/Group/${groupId}?withThis=${searchValue}`;
     return this._httpClient.get<Assembly[]>(url);
   }
+  
+  createAssembly(title: string, groupId : number = 1) : Observable<Assembly> {
+    let url = this._urlBase + `/api/Assembly/${groupId}`;
+    let assembly : Assembly = {
+      title: title,
+      id: 0,
+      concepts: []
+    }
+    return this._httpClient.post<Assembly>(url,assembly)
+  }
 }

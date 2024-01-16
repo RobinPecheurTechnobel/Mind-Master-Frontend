@@ -13,11 +13,15 @@
             <div id="yeuxE"></div>
         </div>
     </div>
-
-    <div *ngFor="let conceptAssembly of GetConceptSort()" (mouseover)="GetTitle(conceptAssembly.concept.id)" class=concept [isVisibilityActivate]="isVisibilityActivate">
-        <div *ngFor="let conceptIdea of GetIdeaSort(conceptAssembly.concept.ideas)">
-            <p class="idea"  [isVisibilityActivate]="isVisibilityActivate">{{conceptIdea.idea.content}}</p>
+    <div *ngIf="assembly.concepts; else noConcepts">
+        <div *ngFor="let conceptAssembly of GetConceptSort()" (mouseover)="GetTitle(conceptAssembly.concept.id)" class=concept [isVisibilityActivate]="isVisibilityActivate">
+            <div *ngFor="let conceptIdea of GetIdeaSort(conceptAssembly.concept.ideas)">
+                <p class="idea"  [isVisibilityActivate]="isVisibilityActivate">{{conceptIdea.idea.content}}</p>
+            </div>
         </div>
     </div>
+    <ng-template #noConcepts>
+        <p>ça manque d'idée ici ...</p>
+    </ng-template>
 </div>
 

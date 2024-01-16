@@ -1,1 +1,8 @@
-<p>assembly-creation works!</p>
+<div class="global">
+    <input type="checkbox" [ngModel]="!isOpen">
+    <a (click)="isOpen = !isOpen"><p>Créer un nouvel assemblage{{isOpen?" : ": " ? "}}</p></a>
+    <div class="creationMenu">
+        <input type="text" [(ngModel)]="title">
+        <button class="btn btn-primary" (click)="create()">C'est partit</button>
+    </div>
+</div>

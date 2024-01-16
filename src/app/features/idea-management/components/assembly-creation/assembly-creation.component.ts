@@ -1,4 +1,6 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { IdeaService } from '../../services/idea.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-assembly-creation',
@@ -8,7 +10,28 @@ import { Component, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class AssemblyCreationComponent {
   groupId : number = -1;
-  //TODO Here
-  //vérifier user connecté
+
+  isOpen : boolean = false;
+
+  title : string = "";
+
+  constructor(private _IdeaService : IdeaService,
+    private _Router : Router) {
+    
+  }
+
+  create() {
+    console.log(this.title);
+    if(this.title != undefined && this.title.replaceAll(" ","") != "" )
+      this._IdeaService.createAssembly(this.title, this.groupId).subscribe({
+        next : response => {
+          if(response) {
+            console.log(response);
+            this._Router.navigateByUrl(`/assembly/${response.id}`)
+          }
+          
+        }
+      })
+  }
   
 }

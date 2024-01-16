@@ -1,0 +1,17 @@
+.global{
+    display: flex;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+.creationMenu{
+    margin-left: 5px;
+}
+input[type=checkbox]:checked{
+    ~ .creationMenu{
+        margin-left: 5px;
+        transition: all 0.3s;
+        display: none;
+    }
+}
