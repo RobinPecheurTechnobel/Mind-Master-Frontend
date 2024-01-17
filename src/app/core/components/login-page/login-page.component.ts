@@ -44,7 +44,10 @@ export class LoginPageComponent implements OnInit{
 
   ngOnInit(): void {
     this._sub = this._authService.$errorMessage.subscribe({
-      next:(value)=> {this.errorMessage = value;}
+      next:(value)=> {
+        if (value != undefined && typeof(value) != typeof(String)) this.errorMessage = "Une erreur de communication avec le serveur s'est produite. Veuillez réessayer plus tard ou contacter un admin."
+        else this.errorMessage = value;
+      }
     })
   }
   ngOnDestroy(): void {
