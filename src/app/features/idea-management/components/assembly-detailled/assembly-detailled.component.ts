@@ -40,13 +40,13 @@ export class AssemblyDetailledComponent implements OnInit{
   GetNoTitle(){}
   GetConceptSort():ConceptInAssembly[]{
     return this.assembly!.concepts.sort((a,b)=>
-    b.order - a.order
+    a.order - b.order
     );
   }
   GetIdeaSort(ideas: IdeaInConcept[]):IdeaInConcept[]
   {
     return ideas.sort((a,b)=>
-      b.order - a.order
+      a.order - b.order
     );
   }
 }
