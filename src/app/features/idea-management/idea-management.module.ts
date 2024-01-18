@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HoverCompositionDirective } from './directives/hover-composition.directive';
 import { AssemblyCreationComponent } from './components/assembly-creation/assembly-creation.component';
+import { AssemblyEditionComponent } from './components/assembly-edition/assembly-edition.component';
 
 
 
@@ -15,7 +16,8 @@ import { AssemblyCreationComponent } from './components/assembly-creation/assemb
     AssemblyListComponent,
     AssemblyDetailledComponent,
     HoverCompositionDirective,
-    AssemblyCreationComponent
+    AssemblyCreationComponent,
+    AssemblyEditionComponent
   ],
   imports: [
     CommonModule,

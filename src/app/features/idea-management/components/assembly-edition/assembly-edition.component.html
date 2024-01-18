@@ -1,0 +1,42 @@
+<h1>Modifier cet assemblage :</h1>
+<div *ngIf="assembly; else noAssembly">
+    <h2>{{assembly!.title}}</h2>
+    <div class="controls">
+        <input type="checkbox" class="visibility" [(ngModel)]="isVisibilityActivate">
+        <div class="yeux" (click)="isVisibilityActivate = !isVisibilityActivate">
+            <div id="yeuxA">
+                <div id="yeuxB"></div>
+            </div>
+            <div id="yeuxD">
+                <div id="yeuxC"></div>
+            </div>
+            <div id="yeuxE"></div>
+        </div>
+    </div>
+    <!-- Example of nested form-->
+    <!-- https://stackblitz.com/edit/deep-nested-reactive-form?file=app%2Fapp.component.ts -->
+    <form [formGroup]="assemblyForm">
+        <div *ngIf="assemblyForm" formArrayName="conceptAssemblies">
+            <div *ngFor="let conceptAssembly of GetConcepts(); let i = index" class=concept [isVisibilityActivate]="isVisibilityActivate" [formGroupName]="i">
+                <div formGroupName="concept">
+                    <div formArrayName="ideas" *ngIf="GetIdeas(conceptAssembly).length>0">
+                        <div *ngFor="let conceptAssembly of GetIdeas(conceptAssembly); let j = index" [formGroupName]="j">
+                            <div>
+                                <input type="text" class="ideaInput" 
+                                    [isVisibilityActivate]="isVisibilityActivate" 
+                                    formControlName="content"
+                                    (change)="ChangeDetectedInIdea(i,j)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" value="ok"></button>
+    </form>
+    <br>
+    <pre> {{assemblyForm.value | json}} </pre>
+</div>
+<ng-template #noAssembly>
+
+</ng-template>

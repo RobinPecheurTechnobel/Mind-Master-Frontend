@@ -3,7 +3,7 @@
     
     <div class="controls">
         <input type="checkbox" class="visibility" [(ngModel)]="isVisibilityActivate">
-        <div (click)="isVisibilityActivate = !isVisibilityActivate">
+        <div class="yeux" (click)="isVisibilityActivate = !isVisibilityActivate">
             <div id="yeuxA">
                 <div id="yeuxB"></div>
             </div>
@@ -11,6 +11,23 @@
                 <div id="yeuxC"></div>
             </div>
             <div id="yeuxE"></div>
+        </div>
+        <div *ngIf="isConnected()">
+            <button class="action"  [routerLink]="'/assembly/'+idAssembly+'/edit'">
+                <svg viewBox="0 0 25 25" height="25" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#A7C8DB" d="M 0,25 l 5,-1 l 17.5,-16.5 l -5,-5 l -16.5,17.5 z"/>
+                    <path fill="#7798AB" d="M 22.5,7.5 l 2.5,-2.5 l -5,-5 l -2.5,2.5 z"/>
+                    <path fill="#7798AB" d="M 0,25 l 2.5,-.6 l -2,-2  z"/>
+                </svg>
+            </button>
+        </div>
+        <div *ngIf="isConnected()">
+            <button class="action">
+                <svg viewBox="0 0 25 25" height="25" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#A7C8DB" d="M 0,10 l 0,15 l 25,0 l 0,-15 l -4,0 l 0,2 l 2,0 l 0,11 l -21,0 l 0,-11 l 2,0 l 0,-2 z"/>
+                    <path fill="#A7C8DB" d="M 12.5,0 l 5,5 l -4,0 l 0,15 l -2,0 l 0,-15 l -4,0 l 5,-5 z"/>
+                </svg>
+            </button>
         </div>
     </div>
     <div *ngIf="assembly.concepts; else noConcepts">

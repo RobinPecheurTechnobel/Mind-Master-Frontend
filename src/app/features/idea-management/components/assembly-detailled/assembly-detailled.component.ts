@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IdeaService } from '../../services/idea.service';
 import { Assembly, ConceptInAssembly, IdeaInConcept } from 'src/app/shared/models/idea';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-assembly-detailled',
@@ -16,7 +17,8 @@ export class AssemblyDetailledComponent implements OnInit{
   assembly : Assembly| undefined = undefined;
 
   constructor(private _ActivatedRoute : ActivatedRoute,
-    private _IdeaService : IdeaService){
+    private _IdeaService : IdeaService,
+    private _AuthService : AuthService){
     this.idAssembly = +_ActivatedRoute.snapshot.params["id"];
   }
   ngOnInit(): void {
@@ -27,6 +29,10 @@ export class AssemblyDetailledComponent implements OnInit{
     })
   }
 
+  isConnected():boolean
+  {
+    return this._AuthService.getId() !=undefined
+  }
   //TODO hover information
   GetTitle(conceptId: number) {
     return this.assembly?.concepts.find(c => c.id == conceptId);

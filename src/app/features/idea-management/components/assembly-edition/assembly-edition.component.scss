@@ -1,14 +1,8 @@
-.controls{
-    display : flex;
-    justify-content: space-around;
+.concept{
+    margin: 10px;
 }
-.action{
-    background-color: transparent;
-    border-width: 0px;
-}
-.idea{
-    margin-left:10px;
-    margin-right:10px;
+.ideaInput{
+    margin: 5px;
 }
 
 .yeux{
@@ -87,4 +81,7 @@ input[type=checkbox]:checked
 }
 .visibility{
     display:none;
+}
+input[type="text"]{
+    width:50%
 }
